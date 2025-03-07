@@ -4,4 +4,10 @@ numpy==1.24.2
 xarray==2023.2.0
 geopandas==0.12.2
 pandas==1.5.3
-guncorn==20.1.0
+netCDF4
+h5netcdf==1.4.1
+scipy
+h5py
+GDAL==3.9.0
+fiona==1.10.1
+shapely

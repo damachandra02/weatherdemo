@@ -13,7 +13,7 @@ file_path = os.path.join(BASE_DIR, 'aifs_forecast_heat_stress.nc')
 shapefile_path_tal = 'karnataka_shape_files_taluk_district-20250307T065511Z-001\\karnataka_shape_files_taluk_district\\Taluk\\Taluk.shp'
 
 # Load the dataset and compute daily parameters
-ds = xr.open_dataset(file_path)
+ds = xr.open_dataset(file_path,engine="netcdf4")
 min_2t = ds['2t'].resample(time='1D').min()
 max_2t = ds['2t'].resample(time='1D').max()
 avg_2t = ds['2t'].resample(time='1D').mean()
