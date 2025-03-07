@@ -9,9 +9,9 @@ import pandas as pd
 from dash import dcc, html, Input, Output
 
 # Define base directory and file paths
-BASE_DIR = 'C:\\Users\\Damachandra\\Desktop\\IISc_internship\\New folder'
+BASE_DIR = 'C:\\Users\\Damachandra\\Desktop\\IISc_internship\\weatherdemo'
 file_path = os.path.join(BASE_DIR, 'aifs_forecast_heat_stress.nc')
-shapefile_path_tal = 'C:\\Users\\Damachandra\\Desktop\\IISc_internship\\New folder\\karnataka_shape_files_taluk_district-20250307T065511Z-001\\karnataka_shape_files_taluk_district\\Taluk\\Taluk.shp'
+shapefile_path_tal = 'C:\\Users\\Damachandra\\Desktop\\IISc_internship\\weatherdemo\\karnataka_shape_files_taluk_district-20250307T065511Z-001\\karnataka_shape_files_taluk_district\\Taluk\\Taluk.shp'
 
 # Load the dataset and compute daily parameters
 ds = xr.open_dataset(file_path)
@@ -199,6 +199,6 @@ def update_graph(date_idx, selected_vars):
     
     return graphs
 
-if __name__ == '__main__':
-    app.run_server(debug=True, port=8067)
 
+if __name__ == '__main__':
+    app.run_server(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
